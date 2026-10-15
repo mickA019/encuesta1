@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta - Volcán Cotopaxi</title> con este. plisss
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
+    
+    <!-- Estilos adicionales para un acabado súper limpio -->
+    <style>
+        body {
+            background: linear-gradient(135deg, #eef2f3 0%, #8e9eab 100%);
+            min-height: 100vh;
+        }
+        .survey-card {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        .question-block {
+            background-color: #f8f9fa;
+            border-left: 4px solid #0d6efd;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.2s ease-in-out;
+        }
+        .question-block:hover {
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .form-control, .form-select {
+            border-radius: 0.5rem;
+            padding: 0.6rem 0.9rem;
+            border: 1px solid #ced4da;
+        }
+        .form-control:focus, .form-select:focus {
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+        }
+        .btn-custom {
+            border-radius: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.25);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(13, 110, 253, 0.35);
+        }
+    </style>
+</head>
+<body class="py-5">
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                
+                <!-- Tarjeta Principal de la Encuesta -->
+                <div class="card survey-card bg-white p-4 p-md-5">
+                    
+                    <!-- Encabezado -->
+                    <div class="text-center mb-4">
+                        <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill fw-semibold mb-2">Encuesta de Visitantes</span>
+                        <h1 class="display-6 fw-bold text-dark">VOLCÁN COTOPAXI</h1>
+                        <p class="text-muted small">Ayúdanos a mejorar tu experiencia compartiendo tus opiniones y planes de viaje.</p>
+                    </div>
+
+                    <form action="/action_page.php" autocomplete="on">
+                        <fieldset class="border-0 p-0 m-0">
+                            
+                            <!-- 1. Datos personales -->
+                            <div class="question-block">
+                                <label class="form-label fw-bold text-dark mb-3">1. Datos personales</label>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label for="fname" class="form-label small text-muted">Nombre completo</label>
+                                        <input type="text" class="form-control" id="fname" name="fname" placeholder="Ej. Juan Pérez">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="email" class="form-label small text-muted">Correo electrónico</label>
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="ejemplo@correo.com">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 2. Motivo Principal -->
+                            <div class="question-block">
+                                <label class="form-label fw-bold text-dark mb-3">2. ¿Cuál es el motivo PRINCIPAL de su visita?</label>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" id="motivo1" name="motivo_principal" value="recreacion">
+                                    <label class="form-check-label" for="motivo1">Recreación y descanso</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="radio" id="motivo2" name="motivo_principal" value="aventura">
+                                    <label class="form-check-label" for="motivo2">Aventura y deportes</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" id="motivo3" name="motivo_principal" value="naturaleza">
+                                    <label class="form-check-label" for="motivo3">Naturaleza y paisajes</label>
+                                </div>
+                            </div>
+
+                            <!-- 3. Actividades Específicas -->
+                            <div class="question-block">
+                                <label class="form-label fw-bold text-dark mb-3">3. ¿Qué actividades ESPECÍFICAS planea o le gustaría realizar?</label>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="act_caminata" name="actividades" value="Caminata">
+                                    <label class="form-check-label" for="act_caminata">Caminata o ascenso (ej. al refugio o cumbre)</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="act_ciclismo" name="actividades" value="Ciclismo">
+                                    <label class="form-check-label" for="act_ciclismo">Ciclismo de montaña / Downhill</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="act_acampar" name="actividades" value="Camping">
+                                    <label class="form-check-label" for="act_acampar">Acampar / Pasar la noche</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="act_fotografia" name="actividades" value="Fotografia">
+                                    <label class="form-check-label" for="act_fotografia">Fotografía de paisajes</label>
+                                </div>
+                            </div>
+
+                            <!-- 4. Tiempo de permanencia -->
+                            <div class="question-block">
+                                <label for="tiempo_visita" class="form-label fw-bold text-dark mb-3">4. ¿Cuánto tiempo planea permanecer en el lugar?</label>
+                                <select class="form-select" id="tiempo_visita" name="tiempo_visita">
+                                    <option value="menos_2h">Menos de 2 horas (visita fugaz)</option>
+                                    <option value="medio_dia">Medio día (2 a 4 horas)</option>
+                                    <option value="todo_dia">Todo el día (sin pernoctar)</option>
+                                    <option value="1_noche">2 días / 1 noche (acampar o hospedaje cercano)</option>
+                                </select>
+                            </div>
+
+                            <!-- 5. Desplazamiento -->
+                            <div class="question-block">
+                                <label class="form-label fw-bold text-dark mb-3">5. ¿Cómo se desplaza para realizar esta visita?</label>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="trans_propio" name="desplazamiento" value="Vehiculo_propio">
+                                    <label class="form-check-label" for="trans_propio">Vehículo propio / alquilado</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="trans_agencia" name="desplazamiento" value="Tour_privado">
+                                    <label class="form-check-label" for="trans_agencia">Tour privado con agencia de viajes</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="trans_publico" name="desplazamiento" value="Transporte_publico">
+                                    <label class="form-check-label" for="trans_publico">Transporte público</label>
+                                </div>
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="trans_bici
