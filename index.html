@@ -3,23 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encuesta - Volcán Cotopaxi</title> con este. plisss
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
-    <script type="module" src="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-1a/pXj49ZQ1aHEmrJ+gMw1otqoVsYwlEnlD8mIfY2TV03r20Y0CN7uqx1tQogjPL" crossorigin="anonymous"></script>
+    <title>Encuesta - Volcán Cotopaxi</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     
-    <!-- Estilos adicionales para un acabado súper limpio -->
     <style>
         body {
-            background: linear-gradient(135deg, #eef2f3 0%, #8e9eab 100%);
+            /* Imagen de fondo del Volcán Cotopaxi con superposición oscura (overlay) */
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), 
+                        url('https://images.unsplash.com/photo-1589802829985-817e51171b92?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+            background-size: cover;
             min-height: 100vh;
         }
         .survey-card {
             border: none;
             border-radius: 1rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            /* Fondo blanco translúcido para integrarse bien con el fondo */
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
         }
         .question-block {
-            background-color: #f8f9fa;
+            background-color: rgba(248, 249, 250, 0.9);
             border-left: 4px solid #0d6efd;
             border-radius: 0.5rem;
             padding: 1.25rem;
@@ -28,7 +33,7 @@
         }
         .question-block:hover {
             background-color: #ffffff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
         .form-control, .form-select {
             border-radius: 0.5rem;
@@ -43,12 +48,12 @@
             padding: 0.8rem 1.5rem;
             font-weight: 600;
             letter-spacing: 0.5px;
-            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.25);
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .btn-custom:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(13, 110, 253, 0.35);
+            box-shadow: 0 6px 15px rgba(13, 110, 253, 0.45);
         }
     </style>
 </head>
@@ -59,34 +64,33 @@
             <div class="col-lg-8 col-md-10">
                 
                 <!-- Tarjeta Principal de la Encuesta -->
-                <div class="card survey-card bg-white p-4 p-md-5">
+                <div class="card survey-card p-4 p-md-5">
                     
                     <!-- Encabezado -->
                     <div class="text-center mb-4">
-                        <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill fw-semibold mb-2">Encuesta de Visitantes</span>
-                        <h1 class="display-6 fw-bold text-dark">VOLCÁN COTOPAXI</h1>
-                        <p class="text-muted small">Ayúdanos a mejorar tu experiencia compartiendo tus opiniones y planes de viaje.</p>
+                        <h1 class="display-6 fw-bold text-dark">VOLCAN COTOPAXI</h1>
                     </div>
 
                     <form action="/action_page.php" autocomplete="on">
                         <fieldset class="border-0 p-0 m-0">
+                            <legend class="h4 fw-bold text-primary mb-4 pb-2 border-bottom">Encuesta</legend>
                             
                             <!-- 1. Datos personales -->
                             <div class="question-block">
                                 <label class="form-label fw-bold text-dark mb-3">1. Datos personales</label>
                                 <div class="row g-3">
                                     <div class="col-md-6">
-                                        <label for="fname" class="form-label small text-muted">Nombre completo</label>
-                                        <input type="text" class="form-control" id="fname" name="fname" placeholder="Ej. Juan Pérez">
+                                        <label for="fname" class="form-label">Nombre:</label>
+                                        <input type="text" class="form-control" id="fname" name="fname">
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="email" class="form-label small text-muted">Correo electrónico</label>
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="ejemplo@correo.com">
+                                        <label for="email" class="form-label">Email:</label>
+                                        <input type="text" class="form-control" id="email" name="email">
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- 2. Motivo Principal -->
+                            <!-- 2. Motivo Principal (Radio Buttons) -->
                             <div class="question-block">
                                 <label class="form-label fw-bold text-dark mb-3">2. ¿Cuál es el motivo PRINCIPAL de su visita?</label>
                                 <div class="form-check mb-2">
@@ -103,7 +107,7 @@
                                 </div>
                             </div>
 
-                            <!-- 3. Actividades Específicas -->
+                            <!-- 3. Actividades Específicas (Checkboxes) -->
                             <div class="question-block">
                                 <label class="form-label fw-bold text-dark mb-3">3. ¿Qué actividades ESPECÍFICAS planea o le gustaría realizar?</label>
                                 <div class="form-check mb-2">
@@ -124,7 +128,7 @@
                                 </div>
                             </div>
 
-                            <!-- 4. Tiempo de permanencia -->
+                            <!-- 4. Tiempo de permanencia (Select) -->
                             <div class="question-block">
                                 <label for="tiempo_visita" class="form-label fw-bold text-dark mb-3">4. ¿Cuánto tiempo planea permanecer en el lugar?</label>
                                 <select class="form-select" id="tiempo_visita" name="tiempo_visita">
@@ -135,7 +139,7 @@
                                 </select>
                             </div>
 
-                            <!-- 5. Desplazamiento -->
+                            <!-- 5. Desplazamiento (Checkboxes) -->
                             <div class="question-block">
                                 <label class="form-label fw-bold text-dark mb-3">5. ¿Cómo se desplaza para realizar esta visita?</label>
                                 <div class="form-check mb-2">
@@ -151,4 +155,49 @@
                                     <label class="form-check-label" for="trans_publico">Transporte público</label>
                                 </div>
                                 <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" id="trans_bici
+                                    <input class="form-check-input" type="checkbox" id="trans_bici" name="desplazamiento" value="Bicicleta_pie">
+                                    <label class="form-check-label" for="trans_bici">Bicicleta / A pie</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="trans_bus" name="desplazamiento" value="Bus_contratado">
+                                    <label class="form-check-label" for="trans_bus">En grupo en autobús contratado</label>
+                                </div>
+                            </div>
+
+                            <!-- 6. Atractivo de interés (Datalist) -->
+                            <div class="question-block">
+                                <label for="atractivo_interes" class="form-label fw-bold text-dark mb-3">6. ¿Qué atractivo o punto específico del lugar es su mayor interés?</label>
+                                <input class="form-control" list="browsers" id="atractivo_interes" name="atractivo">
+                                <datalist id="browsers">
+                                    <option value="El volcán / Cumbre">
+                                    <option value="La Laguna de Limpiopungo">
+                                    <option value="El Refugio José Rivas">
+                                    <option value="Las áreas de camping / picnic">
+                                    <option value="Ninguno en particular, vengo a explorar">
+                                </datalist>
+                            </div>
+
+                            <!-- Sección de sugerencias abierta -->
+                            <div class="question-block">
+                                <h3 class="h5 fw-bold text-dark mb-1">Sugerencia</h3>
+                                <p class="text-muted small mb-3">Agregue alguna actividad adicional que quiera hacer.</p>
+                                <textarea class="form-control" name="message" rows="5" cols="30">Escriba aquí.</textarea>
+                            </div>
+
+                            <!-- Botón Enviar -->
+                            <div class="d-grid gap-2 mt-4">
+                                <input type="submit" class="btn btn-primary btn-lg btn-custom" value="Enviar Encuesta">
+                            </div>
+
+                        </fieldset>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JavaScript Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
